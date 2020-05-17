@@ -15,7 +15,9 @@ function Header() {
                 <img src={logo} alt="blusinha" />
             </Link>
             <Cart to="/cart">
-                <AiOutlineUser size={45} color="#FFF" />
+                <Link to="/">
+                    <AiOutlineUser size={45} color="#FFF" />
+                </Link>
                 <RiShoppingBagLine size={45} color="#FFF" />
                 <div>
                     <span>0</span>
