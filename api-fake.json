@@ -1,0 +1,142 @@
+{
+    "amount": [
+      {
+        "id": 1,
+        "P": 3,
+        "M": 2,
+        "G": 1,
+        "GG": 0
+      },
+      {
+        "id": 2,
+        "p": 3,
+        "m": 2,
+        "g": 1,
+        "gg": 0
+      },
+      {
+        "id": 3,
+        "p": 3,
+        "m": 2,
+        "g": 1,
+        "gg": 0
+      },
+      {
+        "id": 4,
+        "p": 3,
+        "m": 2,
+        "g": 1,
+        "gg": 0
+      },
+      {
+        "id": 5,
+        "p": 3,
+        "m": 2,
+        "g": 1,
+        "gg": 0
+      },
+      {
+        "id": 6,
+        "p": 3,
+        "m": 5,
+        "g": 2,
+        "gg": 3
+      },
+      {
+        "id": 7,
+        "p": 5,
+        "m": 2,
+        "g": 1,
+        "gg": 1
+      },
+      {
+        "id": 8,
+        "p": 1,
+        "m": 0,
+        "g": 3,
+        "gg": 4
+      },
+      {
+        "id": 9,
+        "p": 2,
+        "m": 1,
+        "g": 1,
+        "gg": 2
+      }
+
+    ],
+    "products": [
+      {
+        "id": 1,
+        "cod": 123,
+        "title": "Blusa Nazaré calculos",
+        "description": "Blusinha cor preta Nazaré Calculos para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/n6F6r7L/nazare-preto.jpg"
+      },
+      {
+        "id": 2,
+        "cod": 124,
+        "title": "Blusa Nazaré calculos",
+        "description": "Blusinha cor branca Nazaré Calculos para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/GVsZ88t/nazare-branco.jpg"
+      },
+      {
+        "id": 3,
+        "cod": 125,
+        "title": "Blusa Joelma",
+        "description": "Blusinha cor preta Joelma para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/Hx7mDkc/joelma-preto.jpg"
+      },
+      {
+        "id": 5,
+        "cod": 126,
+        "title": "Blusa Joelma",
+        "description": "Blusinha cor branca Joelma para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/jfj0w2Y/joelma-branco.jpg"
+      },
+      {
+        "id": 6,
+        "cod": 127,
+        "description": "Blusa gato de máscara",
+        "description": "Blusinha cor branca gato com máscara para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/drdq2NK/gato-branco.jpg"
+      },
+      {
+        "id": 4,
+        "cod": 128,
+        "description": "Blusa Monalisa de máscara",
+        "description": "Blusinha cor preta Monalisa de máscara para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/Lr2RMz3/monalisa-preto.jpg"
+      },
+      {
+        "id": 7,
+        "cod": 129,
+        "description": "Blusa Senhora, senhora",
+        "description": "Blusinha cor branca Senhora, senhora, para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/3RBwNRT/senhora-branco.jpg"
+      },
+      {
+        "id": 8,
+        "cod": 130,
+        "description": "Blusa Monalisa de máscara",
+        "description": "Blusinha cor branca Monalisa de máscara para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/2Frwp3F/monalisa-branco.jpg"
+      },
+      {
+        "id": 9,
+        "cod": 131,
+        "description": "Blusa gato de máscara versão grande",
+        "description": "Blusinha cor preta gato com máscara, versão grande, para descolados muito leve, 100 algodão",
+        "price": 39.9,
+        "image": "https://i.ibb.co/J2RnqZW/gato-preto.jpg"
+      }
+    ]
+  }

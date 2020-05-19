@@ -27,12 +27,10 @@ export const TshirtList = styled.ul`
         strong {
             font-size: 14px;
             line-height: 20px;
-            color: #333;
             margin-top: 5px;
         }
 
         span {
-            color: #333;
             text-align: center;
             font-weight: bold;
             margin-bottom: 5px;
