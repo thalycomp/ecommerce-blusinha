@@ -1,86 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Api from '../../services/api';
 
 import { Container, TshirtList } from './styles';
 
-function Home() {
-    return (
-        <Container>
-            <TshirtList>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-                <li>
-                    <img
-                        src="https://t-static.dafiti.com.br/Ubg3fw2vDGCPyWHG0SbSfhNBrQA=/fit-in/427x620/static.dafiti.com.br/p/fatal-camiseta-fatal-logo-preta-2837-7570015-1-product.jpg"
-                        alt="Blusa preta"
-                    />
-                    <strong>Camiseta básica confortável preta</strong>
-                    <span>R$ 59,90</span>
-                    <button>COMPRAR</button>
-                </li>
-            </TshirtList>
-        </Container>
-    );
-}
+export default class Home extends Component {
+    // eslint-disable-next-line react/state-in-constructor
+    state = {
+        tshirts: [],
+    };
 
-export default Home;
+    async componentDidMount() {
+        const response = await Api.get('tshirts');
+        console.log(response);
+        this.setState({ tshirts: response.data });
+    }
+
+    render() {
+        const { tshirts } = this.state;
+
+        return (
+            <Container>
+                <TshirtList>
+                    {tshirts.map((tshirt) => (
+                        <li key={tshirt.id}>
+                            <img src={tshirt.image} alt={tshirt.title} />
+                            <strong>{tshirt.title}</strong>
+                            <span>R$ {tshirt.price}</span>
+                            <button type="button">COMPRAR</button>
+                        </li>
+                    ))}
+                </TshirtList>
+            </Container>
+        );
+    }
+}
