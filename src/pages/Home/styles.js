@@ -7,7 +7,7 @@ export const Container = styled.div`
 export const TshirtList = styled.ul`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 25px;
+    grid-gap: 15px;
     list-style: none;
 
     li {
@@ -37,10 +37,11 @@ export const TshirtList = styled.ul`
             font-size: 20px;
         }
 
-        button {
+        a {
             background: linear-gradient(-75deg, #23a6d5, #e73c7e);
             background-size: 400% 400% 400%;
-
+            text-decoration: none;
+            text-align: center;
             border: none;
             color: #fff;
             border-radius: 4px;

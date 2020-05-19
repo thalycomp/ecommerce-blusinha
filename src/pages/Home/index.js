@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import Api from '../../services/api';
 
 import { Container, TshirtList } from './styles';
@@ -26,7 +27,7 @@ export default class Home extends Component {
                             <img src={tshirt.image} alt={tshirt.title} />
                             <strong>{tshirt.title}</strong>
                             <span>R$ {tshirt.price}</span>
-                            <button type="button">COMPRAR</button>
+                            <Link to={`/details/${tshirt.id}`}>COMPRAR</Link>
                         </li>
                     ))}
                 </TshirtList>
