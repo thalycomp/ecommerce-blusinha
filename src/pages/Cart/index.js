@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import {
     IoMdRemoveCircle,
@@ -9,7 +11,9 @@ import {
 } from 'react-icons/io';
 import { Container, ProductCart, ButtonsNav } from './styles';
 
-function Cart() {
+function Cart({ cartTShirts }) {
+    console.log( cartTShirts );
+
     return (
         <>
             <Container>
@@ -72,10 +76,10 @@ function Cart() {
                 </ProductCart>
                 <ButtonsNav>
                     <div>
-                        <button type="button" to="/">
+                        <Link to="/">
                             <IoIosArrowBack size={20} color="#fff" />
                             CONTINUAR COMPRANDO
-                        </button>
+                        </Link>
                         <button type="button" to="/cart">
                             FINALIZAR COMPRA
                             <IoIosArrowForward size={20} color="#fff" />
@@ -87,4 +91,6 @@ function Cart() {
     );
 }
 
-export default Cart;
+export default connect(state => ({
+    cartTShirts: state.cart,
+}))(Cart);

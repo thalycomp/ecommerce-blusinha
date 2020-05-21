@@ -18,12 +18,21 @@ export const TshirtList = styled.ul`
         padding: 15px;
         justify-content: center;
 
-        img {
-            align-self: center;
-            max-height: 250px;
-            max-width: 400px;
-        }
+        div {
+            display: flex;
+            justify-content: initial;
 
+            img {
+                margin-left: 15px;
+                max-height: 230px;
+                max-width: 400px;
+            }
+            button {
+                background-color: transparent;
+                border: none;
+                height: 30px;
+            }
+        }
         strong {
             font-size: 14px;
             line-height: 20px;

@@ -1,10 +1,7 @@
 import { createStore } from 'redux';
 
-//reducer
-function cart() {
-    return [];
-}
+import rootReducer from './Modules/rootReducer';
 
-const store = createStore(cart);
+const store = createStore(rootReducer);
 
 export default store;

@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { RiShoppingBagLine } from 'react-icons/ri';
 import { AiOutlineUser } from 'react-icons/ai';
 
@@ -8,23 +10,26 @@ import logo from '../../assets/logo.png';
 
 import { Container, Cart } from './styles';
 
-function Header() {
+function Header({ cartTotal }) {
+
     return (
         <Container>
             <Link to="/">
                 <img src={logo} alt="blusinha" />
             </Link>
             <Cart to="/cart">
-                <Link to="/">
+                <Link to="/login">
                     <AiOutlineUser size={45} color="#FFF" />
                 </Link>
-                <RiShoppingBagLine size={45} color="#FFF" />
+                <RiShoppingBagLine to="/cart" size={45} color="#FFF" />
                 <div>
-                    <span>0</span>
+                    <span>{cartTotal}</span>
                 </div>
             </Cart>
         </Container>
     );
 }
 
-export default Header;
+export default connect((state) => ({
+    cartTotal: state.cart.length,
+}))(Header);

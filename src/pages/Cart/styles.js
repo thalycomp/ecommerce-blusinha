@@ -53,7 +53,6 @@ export const ProductCart = styled.table`
             border: 0;
             padding: 6px;
         }
-
     }
 
     img {
@@ -62,7 +61,6 @@ export const ProductCart = styled.table`
 `;
 
 export const ButtonsNav = styled.section`
-
     div {
         display: flex;
         justify-content: space-between;
@@ -74,6 +72,30 @@ export const ButtonsNav = styled.section`
             align-items: center;
             background: linear-gradient(-75deg, #23a6d5, #e73c7e);
             background-size: 400% 400% 400%;
+
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+            padding: 12px;
+            font-weight: bold;
+
+            transition: background 0.2s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background-size: 400% 400% 400%;
+            text-decoration: none;
+            text-align: center;
 
             border: none;
             color: #fff;

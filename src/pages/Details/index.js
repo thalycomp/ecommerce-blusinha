@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import Api from '../../services/api';
 import {
@@ -11,21 +12,28 @@ import {
     SizeTable,
 } from './styles';
 
-export default class Details extends Component {
+class Details extends Component {
     // eslint-disable-next-line react/state-in-constructor
     state = {
-        tshirt: {},
+        tshirt: [],
     };
 
     async componentDidMount() {
         const { id } = this.props.match.params;
 
-        console.log(id);
         const response = await Api.get(`/tshirts/${id}`);
-
 
         this.setState({ tshirt: response.data });
     }
+
+    handleAddtoCart = (tshirt) => {
+        const { dispatch } = this.props;
+
+        dispatch({
+            type: 'ADD_TSHIRT_TO_CART',
+            tshirt,
+        });
+    };
 
     render() {
         const { tshirt } = this.state;
@@ -85,8 +93,12 @@ export default class Details extends Component {
                                 <IoIosArrowBack size={20} color="#fff" />
                                 CONTINUAR COMPRANDO
                             </Link>
-                            <button type="button" to="/cart">
-                                FINALIZAR COMPRA
+                            <button
+                                onClick={() => this.handleAddtoCart(tshirt)}
+                                type="button"
+                                to="/cart"
+                            >
+                                COLOCAR NO CARRINHO
                                 <IoIosArrowForward size={20} color="#fff" />
                             </button>
                         </div>
@@ -149,3 +161,5 @@ export default class Details extends Component {
         );
     }
 }
+
+export default connect()(Details);
