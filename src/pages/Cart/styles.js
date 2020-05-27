@@ -37,6 +37,7 @@ export const ProductCart = styled.table`
             font-size: 10px;
             color: #999;
             margin-bottom: 4px;
+            text-transform: uppercase;
         }
         div {
             display: flex;
@@ -45,7 +46,8 @@ export const ProductCart = styled.table`
             input {
                 border: 1px solid #fff;
                 border-radius: 2px;
-                width: 20px;
+                padding-left: 15px;
+                width: 40px;
             }
         }
         button {

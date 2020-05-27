@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -16,18 +17,25 @@ class Details extends Component {
     // eslint-disable-next-line react/state-in-constructor
     state = {
         tshirt: [],
+        amount: [],
     };
 
     async componentDidMount() {
         const { id } = this.props.match.params;
 
         const response = await Api.get(`/tshirts/${id}`);
+        const amount = await Api.get(`/amount/${id}`);
 
-        this.setState({ tshirt: response.data });
+        this.setState({ tshirt: response.data, amount: amount.data });
     }
 
     handleAddtoCart = (tshirt) => {
         const { dispatch } = this.props;
+
+        if(!tshirt.tam) {
+            alert('Escolha um tamanho');
+            return;
+        }
 
         dispatch({
             type: 'ADD_TSHIRT_TO_CART',
@@ -35,8 +43,15 @@ class Details extends Component {
         });
     };
 
-    render() {
+    handleChange = (event) => {
         const { tshirt } = this.state;
+        const data = { ...tshirt, tam: event.target.value };
+
+        this.setState({ tshirt: data });
+    }
+
+    render() {
+        const { tshirt, amount } = this.state;
 
         return (
             <>
@@ -52,39 +67,55 @@ class Details extends Component {
                                 <p>{tshirt.description}</p>
                             </div>
                             <strong>R$ {tshirt.price}</strong>
-                            <div>
-                                <input
-                                    type="checkbox"
-                                    id="tamP"
-                                    name="tamP"
-                                    value="tamP"
-                                />
-                                <label htmlFor="tamP"> P </label>
+                            <select onChange={this.handleChange}>
+                                <option value="default" selected>Escolha um tamanho</option>
+                                {
+                                    (amount.p === 0 ? (
+                                        <option value="p" disabled>
+                                            TAM: P
+                                        </option>
+                                    ) : (
+                                        <option value="p">
+                                            TAM: P
+                                        </option>
+                                    ))
+                                }
+                                {
+                                    (amount.m === 0 ? (
+                                        <option value="m" disabled>
+                                            TAM: M
+                                        </option>
+                                    ) : (
+                                        <option value="m">
+                                            TAM: M
+                                        </option>
+                                    ))
+                                }
+                                {
+                                    (amount.get === 0 ? (
+                                        <option value="g" disabled>
+                                            TAM: G
+                                        </option>
+                                    ) : (
+                                        <option value="g">
+                                            TAM: G
+                                        </option>
+                                    ))
+                                }
+                                {
+                                    (amount.gg === 0 ? (
+                                        <option value="gg" disabled>
+                                            TAM: GG
+                                        </option>
+                                    ) : (
+                                        <option value="gg">
+                                            TAM: GG
+                                        </option>
+                                    ))
+                                }
 
-                                <input
-                                    type="checkbox"
-                                    id="tamM"
-                                    name="tamM"
-                                    value="tamM"
-                                />
-                                <label htmlFor="tamM"> M </label>
 
-                                <input
-                                    type="checkbox"
-                                    id="tamG"
-                                    name="tamG"
-                                    value="tamG"
-                                />
-                                <label htmlFor="tamG"> G </label>
-
-                                <input
-                                    type="checkbox"
-                                    id="tamGG"
-                                    name="tamGG"
-                                    value="tamGG"
-                                />
-                                <label htmlFor="tamGG"> GG </label>
-                            </div>
+                            </select>
                         </ProductDetails>
                     </Container>
                     <ButtonsNav>
