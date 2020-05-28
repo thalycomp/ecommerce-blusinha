@@ -60,9 +60,17 @@ export const ProductCart = styled.table`
     img {
         height: 120px;
     }
+
+
 `;
 
 export const ButtonsNav = styled.section`
+    > strong {
+        display: block;
+        text-align: center;
+        margin: 10px;
+        font-size: 16px;
+    }
     div {
         display: flex;
         justify-content: space-between;

@@ -31,8 +31,8 @@ class Details extends Component {
 
     handleAddtoCart = (tshirt) => {
         const { dispatch } = this.props;
-
-        if(!tshirt.tam) {
+        console.log(tshirt.tam);
+        if (tshirt.tam === 'default') {
             alert('Escolha um tamanho');
             return;
         }
@@ -48,7 +48,7 @@ class Details extends Component {
         const data = { ...tshirt, tam: event.target.value };
 
         this.setState({ tshirt: data });
-    }
+    };
 
     render() {
         const { tshirt, amount } = this.state;

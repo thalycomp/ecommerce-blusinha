@@ -41,10 +41,13 @@ export default function cart(state = [], action) {
 
         case 'UPDATE_TSHIRT_AMOUNT':
             return produce(state, (draft) => {
-                const tshirtIndex = draft.findIndex((t) => t.id === action.id);
+                if (action.amount <= 0) {
+                    return state;
+                }
+                const tshirtIndex = draft.findIndex((t) => t.id === action.id && t.tam === action.tam );
 
                 if (tshirtIndex >= 0) {
-                    draft.splice(tshirtIndex, 1);
+                    draft[tshirtIndex].amount = Number(action.amount);
                 }
             });
 

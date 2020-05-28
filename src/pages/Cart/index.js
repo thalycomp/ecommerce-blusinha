@@ -11,7 +11,8 @@ import {
 } from 'react-icons/io';
 import { Container, ProductCart, ButtonsNav } from './styles';
 
-function Cart({ cartTShirts, dispatch }) {
+function Cart({ cartTShirts, total, dispatch }) {
+
     return (
         <>
             <Container>
@@ -46,7 +47,16 @@ function Cart({ cartTShirts, dispatch }) {
                                 </td>
                                 <td>
                                     <div>
-                                        <button type="button">
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                dispatch({
+                                                    type: 'UPDATE_TSHIRT_AMOUNT',
+                                                    id: tshirt.id,
+                                                    amount: tshirt.amount - 1,
+                                                    tam: tshirt.tam,
+                                                })
+                                        }>
                                             <IoMdRemoveCircle
                                                 size={20}
                                                 color="#E73C7E"
@@ -57,7 +67,16 @@ function Cart({ cartTShirts, dispatch }) {
                                             value={tshirt.amount}
                                             readOnly
                                         />
-                                        <button type="button">
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                dispatch({
+                                                    type: 'UPDATE_TSHIRT_AMOUNT',
+                                                    id: tshirt.id,
+                                                    amount: tshirt.amount + 1,
+                                                    tam: tshirt.tam,
+                                                })
+                                        }>
                                             <IoMdAddCircle
                                                 size={20}
                                                 color="#E73C7E"
@@ -66,7 +85,7 @@ function Cart({ cartTShirts, dispatch }) {
                                     </div>
                                 </td>
                                 <td>
-                                    <strong>R$ 299,90</strong>
+                                    <strong>R$ {tshirt.subtotal}</strong>
                                 </td>
                                 <td>
                                     <button
@@ -86,6 +105,7 @@ function Cart({ cartTShirts, dispatch }) {
                     </tbody>
                 </ProductCart>
                 <ButtonsNav>
+                    <strong>TOTAL: R$ {total.toFixed(2)}</strong>
                     <div>
                         <Link to="/">
                             <IoIosArrowBack size={20} color="#fff" />
@@ -103,5 +123,11 @@ function Cart({ cartTShirts, dispatch }) {
 }
 
 export default connect((state) => ({
-    cartTShirts: state.cart,
+    cartTShirts: state.cart.map(tshirt => ({
+        ...tshirt,
+        subtotal: (tshirt.price * tshirt.amount).toFixed(2),
+    })),
+    total: state.cart.reduce((total, tshirt) => {
+        return total + tshirt.price * tshirt.amount;
+    }, 0),
 }))(Cart);
