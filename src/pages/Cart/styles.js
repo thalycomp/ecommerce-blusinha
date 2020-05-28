@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const CartVazio = styled.strong`
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+`;
+
 export const Container = styled.div`
     background: #fff;
     border-radius: 4px;

@@ -9,12 +9,13 @@ import {
     IoIosArrowBack,
     IoIosArrowForward,
 } from 'react-icons/io';
-import { Container, ProductCart, ButtonsNav } from './styles';
+import { Container, ProductCart, ButtonsNav, CartVazio } from './styles';
 
 function Cart({ cartTShirts, total, dispatch }) {
 
     return (
         <>
+            { cartTShirts.length === 0 ? <CartVazio> Seu carrinho de compras está vazio :( </CartVazio> :
             <Container>
                 <ProductCart>
                     <thead>
@@ -118,6 +119,7 @@ function Cart({ cartTShirts, total, dispatch }) {
                     </div>
                 </ButtonsNav>
             </Container>
+            }
         </>
     );
 }
