@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+
 import Api from '../../services/api';
+import * as ActionsCart from '../../store/Modules/cart/actions';
+
 import {
     Container,
     ProductDetails,
@@ -31,16 +34,13 @@ class Details extends Component {
 
     handleAddtoCart = (tshirt) => {
         const { dispatch } = this.props;
-        console.log(tshirt.tam);
+
         if (tshirt.tam === 'default') {
             alert('Escolha um tamanho');
             return;
         }
 
-        dispatch({
-            type: 'ADD_TSHIRT_TO_CART',
-            tshirt,
-        });
+        dispatch(ActionsCart.addToCart(tshirt));
     };
 
     handleChange = (event) => {
@@ -68,53 +68,37 @@ class Details extends Component {
                             </div>
                             <strong>R$ {tshirt.price}</strong>
                             <select onChange={this.handleChange}>
-                                <option value="default" selected>Escolha um tamanho</option>
-                                {
-                                    (amount.p === 0 ? (
-                                        <option value="p" disabled>
-                                            TAM: P
-                                        </option>
-                                    ) : (
-                                        <option value="p">
-                                            TAM: P
-                                        </option>
-                                    ))
-                                }
-                                {
-                                    (amount.m === 0 ? (
-                                        <option value="m" disabled>
-                                            TAM: M
-                                        </option>
-                                    ) : (
-                                        <option value="m">
-                                            TAM: M
-                                        </option>
-                                    ))
-                                }
-                                {
-                                    (amount.get === 0 ? (
-                                        <option value="g" disabled>
-                                            TAM: G
-                                        </option>
-                                    ) : (
-                                        <option value="g">
-                                            TAM: G
-                                        </option>
-                                    ))
-                                }
-                                {
-                                    (amount.gg === 0 ? (
-                                        <option value="gg" disabled>
-                                            TAM: GG
-                                        </option>
-                                    ) : (
-                                        <option value="gg">
-                                            TAM: GG
-                                        </option>
-                                    ))
-                                }
-
-
+                                <option value="default" selected>
+                                    Escolha um tamanho
+                                </option>
+                                {amount.p === 0 ? (
+                                    <option value="p" disabled>
+                                        TAM: P
+                                    </option>
+                                ) : (
+                                    <option value="p">TAM: P</option>
+                                )}
+                                {amount.m === 0 ? (
+                                    <option value="m" disabled>
+                                        TAM: M
+                                    </option>
+                                ) : (
+                                    <option value="m">TAM: M</option>
+                                )}
+                                {amount.get === 0 ? (
+                                    <option value="g" disabled>
+                                        TAM: G
+                                    </option>
+                                ) : (
+                                    <option value="g">TAM: G</option>
+                                )}
+                                {amount.gg === 0 ? (
+                                    <option value="gg" disabled>
+                                        TAM: GG
+                                    </option>
+                                ) : (
+                                    <option value="gg">TAM: GG</option>
+                                )}
                             </select>
                         </ProductDetails>
                     </Container>
