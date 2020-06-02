@@ -33,14 +33,15 @@ class Details extends Component {
     }
 
     handleAddtoCart = (tshirt) => {
-        const { dispatch } = this.props;
+        const { dispatch, history } = this.props;
 
-        if (tshirt.tam === 'default') {
+        if (!tshirt.tam) {
             alert('Escolha um tamanho');
             return;
         }
+        history.push('/cart');
 
-        dispatch(ActionsCart.addToCart(tshirt));
+        dispatch(ActionsCart.addToCartRequest(tshirt));
     };
 
     handleChange = (event) => {
@@ -68,7 +69,7 @@ class Details extends Component {
                             </div>
                             <strong>R$ {tshirt.price}</strong>
                             <select onChange={this.handleChange}>
-                                <option value="default" selected>
+                                <option value="default" disabled selected>
                                     Escolha um tamanho
                                 </option>
                                 {amount.p === 0 ? (

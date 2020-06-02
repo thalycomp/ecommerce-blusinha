@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { RiShoppingBagLine } from 'react-icons/ri';
-import { AiOutlineUser } from 'react-icons/ai';
+import { FaRegHeart } from 'react-icons/fa';
 
 // eslint-disable-next-line import/no-unresolved
 import logo from '../../assets/logo.png';
@@ -19,7 +19,7 @@ function Header({ cartTotal }) {
             </Link>
             <Cart to="/cart">
                 <Link to="/login">
-                    <AiOutlineUser size={45} color="#FFF" />
+                    <FaRegHeart size={38} color="#FFF" />
                 </Link>
                 <RiShoppingBagLine to="/cart" size={45} color="#FFF" />
                 <div>

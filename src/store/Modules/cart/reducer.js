@@ -2,14 +2,13 @@ import produce from 'immer';
 
 export default function cart(state = [], action) {
     switch (action.type) {
-        case 'ADD_TSHIRT_TO_CART':
+        case 'ADD_TSHIRT_TO_CART_SUCCESS':
             return produce(state, (draft) => {
                 const tshirtIndex = draft.findIndex(
                     (t) => t.id === action.tshirt.id
                 );
 
                 if (tshirtIndex >= 0) {
-
                     const tamIsCheck = draft.find(
                         (t) => t.tam === action.tshirt.tam
                     );
@@ -21,7 +20,6 @@ export default function cart(state = [], action) {
                     } else {
                         draft[tshirtIndex].amount += 1;
                     }
-
                 } else {
                     draft.push({
                         ...action.tshirt,
@@ -39,12 +37,11 @@ export default function cart(state = [], action) {
                 }
             });
 
-        case 'UPDATE_TSHIRT_AMOUNT':
+        case 'UPDATE_TSHIRT_AMOUNT_SUCCESS':
             return produce(state, (draft) => {
-                if (action.amount <= 0) {
-                    return state;
-                }
-                const tshirtIndex = draft.findIndex((t) => t.id === action.id && t.tam === action.tam );
+                const tshirtIndex = draft.findIndex(
+                    (t) => t.id === action.id && t.tam === action.tam
+                );
 
                 if (tshirtIndex >= 0) {
                     draft[tshirtIndex].amount = Number(action.amount);

@@ -11,18 +11,27 @@ import {
 } from 'react-icons/io';
 import * as ActionsCart from '../../store/Modules/cart/actions';
 
+
 import { Container, ProductCart, ButtonsNav, CartVazio } from './styles';
 
 function Cart({ cartTShirts, total, dispatch }) {
     function increment(tshirt) {
         dispatch(
-            ActionsCart.updateAmount(tshirt.id, tshirt.tam, tshirt.amount + 1)
+            ActionsCart.updateAmountRequest(
+                tshirt.id,
+                tshirt.tam,
+                tshirt.amount + 1
+            )
         );
     }
 
     function decrement(tshirt) {
         dispatch(
-            ActionsCart.updateAmount(tshirt.id, tshirt.tam, tshirt.amount - 1)
+            ActionsCart.updateAmountRequest(
+                tshirt.id,
+                tshirt.tam,
+                tshirt.amount - 1
+            )
         );
     }
 
@@ -117,7 +126,7 @@ function Cart({ cartTShirts, total, dispatch }) {
                         </tbody>
                     </ProductCart>
                     <ButtonsNav>
-                        <strong>TOTAL: R$ {total.toFixed(2)}</strong>
+                        <strong>TOTAL: R$ {total}</strong>
                         <div>
                             <Link to="/">
                                 <IoIosArrowBack size={20} color="#fff" />
@@ -140,7 +149,9 @@ export default connect((state) => ({
         ...tshirt,
         subtotal: (tshirt.price * tshirt.amount).toFixed(2),
     })),
-    total: state.cart.reduce((total, tshirt) => {
-        return total + tshirt.price * tshirt.amount;
-    }, 0),
+    total: state.cart
+        .reduce((total, tshirt) => {
+            return total + tshirt.price * tshirt.amount;
+        }, 0)
+        .toFixed(2),
 }))(Cart);

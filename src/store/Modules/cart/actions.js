@@ -1,6 +1,13 @@
-export function addToCart(tshirt) {
+export function addToCartRequest(tshirt) {
     return {
-        type: 'ADD_TSHIRT_TO_CART',
+        type: 'ADD_TSHIRT_TO_CART_REQUEST',
+        tshirt,
+    };
+}
+
+export function addToCartSuccess(tshirt) {
+    return {
+        type: 'ADD_TSHIRT_TO_CART_SUCCESS',
         tshirt,
     };
 }
@@ -12,11 +19,20 @@ export function removeToCart(tshirt) {
     };
 }
 
-export function updateAmount(id, tam, amount) {
+export function updateAmountRequest(id, tam, amount) {
     return {
-        type: 'UPDATE_TSHIRT_AMOUNT',
+        type: 'UPDATE_TSHIRT_AMOUNT_REQUEST',
         id,
-        amount,
         tam,
+        amount,
+    };
+}
+
+export function updateAmountSuccess(id, tam, amount) {
+    return {
+        type: 'UPDATE_TSHIRT_AMOUNT_SUCCESS',
+        id,
+        tam,
+        amount,
     };
 }

@@ -52,6 +52,14 @@ export const ProductDetails = styled.section`
             margin-bottom: 4px;
         }
     }
+
+    select {
+        background-color: #e73c7e;
+        height: 35px;
+        border: none;
+        border-radius: 4px;
+        color: #FFF;
+    }
 `;
 
 export const ButtonsNav = styled.section`
