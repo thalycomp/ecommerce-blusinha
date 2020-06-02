@@ -1,6 +1,7 @@
 /* eslint-disable no-return-assign */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
@@ -36,7 +37,7 @@ class Details extends Component {
         const { dispatch, history } = this.props;
 
         if (!tshirt.tam) {
-            alert('Escolha um tamanho');
+            toast.error('Escolha um tamanho');
             return;
         }
         history.push('/cart');

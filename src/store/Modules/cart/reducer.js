@@ -1,5 +1,7 @@
 import produce from 'immer';
 
+import { toast } from 'react-toastify';
+
 export default function cart(state = [], action) {
     switch (action.type) {
         case 'ADD_TSHIRT_TO_CART_SUCCESS':
@@ -34,6 +36,7 @@ export default function cart(state = [], action) {
 
                 if (tshirtIndex >= 0) {
                     draft.splice(tshirtIndex, 1);
+                    toast.success('Produto retirado do carrinho');
                 }
             });
 
