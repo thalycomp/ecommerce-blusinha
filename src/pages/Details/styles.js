@@ -6,7 +6,6 @@ export const DetailsContainer = styled.main`
     background-color: #fff;
     border-radius: 4px;
     padding: 25px;
-    }
 `;
 
 export const Container = styled.div`
@@ -30,8 +29,8 @@ export const ProductDetails = styled.section`
 
     > strong {
         font-size: 30px;
-        color: #e73c7e;
-        border: 1px solid #e73c7e;
+        color: var(--rosa-color);
+        border: 1px solid var(--rosa-color);
         padding: 10px 20px;
         text-align: center;
         border-radius: 4px;
@@ -54,11 +53,11 @@ export const ProductDetails = styled.section`
     }
 
     select {
-        background-color: #e73c7e;
+        background-color: var(--rosa-color);
         height: 35px;
         border: none;
         border-radius: 4px;
-        color: #FFF;
+        color: #fff;
     }
 `;
 
@@ -73,7 +72,11 @@ export const ButtonsNav = styled.section`
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background: linear-gradient(
+                -75deg,
+                var(--azul-color),
+                var(--rosa-color)
+            );
             background-size: 400% 400% 400%;
 
             border: none;
@@ -95,7 +98,11 @@ export const ButtonsNav = styled.section`
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background: linear-gradient(
+                -75deg,
+                var(--azul-color),
+                var(--rosa-color)
+            );
             background-size: 400% 400% 400%;
             text-decoration: none;
             text-align: center;

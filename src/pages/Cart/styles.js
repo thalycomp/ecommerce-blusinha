@@ -67,8 +67,6 @@ export const ProductCart = styled.table`
     img {
         height: 120px;
     }
-
-
 `;
 
 export const ButtonsNav = styled.section`
@@ -87,7 +85,11 @@ export const ButtonsNav = styled.section`
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background: linear-gradient(
+                -75deg,
+                var(--azul-color),
+                var(--rosa-color)
+            );
             background-size: 400% 400% 400%;
 
             border: none;
@@ -109,7 +111,11 @@ export const ButtonsNav = styled.section`
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background: linear-gradient(
+                -75deg,
+                var(--azul-color),
+                var(--rosa-color)
+            );
             background-size: 400% 400% 400%;
             text-decoration: none;
             text-align: center;

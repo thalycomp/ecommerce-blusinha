@@ -22,10 +22,13 @@ export default class Home extends Component {
     handleLove = () => {
         const { disable } = this.state;
 
-        const nvDisable = disable ? false : true;
+        let nvDisable = true;
+        if (disable === true) {
+            nvDisable = false;
+        }
 
         this.setState({ disable: nvDisable });
-    }
+    };
 
     render() {
         const { tshirts, disable } = this.state;
@@ -37,11 +40,15 @@ export default class Home extends Component {
                         <li key={tshirt.id}>
                             <div>
                                 <img src={tshirt.image} alt={tshirt.title} />
-                                <button type="button" onClick={() => this.handleLove()}>
-                                    { disable
-                                        ? <IoMdHeart size={25} color="red" />
-                                        : <IoMdHeartEmpty size={25} color="red" />
-                                    }
+                                <button
+                                    type="button"
+                                    onClick={() => this.handleLove()}
+                                >
+                                    {disable ? (
+                                        <IoMdHeart size={25} color="red" />
+                                    ) : (
+                                        <IoMdHeartEmpty size={25} color="red" />
+                                    )}
                                 </button>
                             </div>
                             <strong>{tshirt.title}</strong>

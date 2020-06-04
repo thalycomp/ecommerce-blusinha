@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 export default createGlobalStyle`
@@ -13,9 +12,13 @@ export default createGlobalStyle`
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
     }
+    :root {
+        --azul-color: #23A6D5;
+        --rosa-color:  #E73C7E;
+    }
 
     body {
-        background: linear-gradient(-75deg, #23A6D5, #E73C7E);
+        background: linear-gradient(-75deg, var(--azul-color), var(--rosa-color));
         background-size: 400% 400% 400%;
         -webkit-font-smoothing: antialiased;
     }

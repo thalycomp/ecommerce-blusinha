@@ -6,8 +6,6 @@ export const Container = styled.div`
 
 export const TshirtList = styled.ul`
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
     list-style: none;
 
     li {
@@ -37,6 +35,7 @@ export const TshirtList = styled.ul`
             font-size: 14px;
             line-height: 20px;
             margin-top: 5px;
+            text-align: center;
         }
 
         span {
@@ -47,7 +46,11 @@ export const TshirtList = styled.ul`
         }
 
         a {
-            background: linear-gradient(-75deg, #23a6d5, #e73c7e);
+            background: linear-gradient(
+                -75deg,
+                var(--azul-color),
+                var(--rosa-color)
+            );
             background-size: 400% 400% 400%;
             text-decoration: none;
             text-align: center;
@@ -65,13 +68,63 @@ export const TshirtList = styled.ul`
                 opacity: 0.7;
             }
         }
-        &:hover {
-            box-shadow: 8px 10px 10px 10px rgba(0, 0, 0, 0.1);
-            -webkit-transform: scale(1.1);
-            -moz-transform: scale(1.1);
-            -o-transform: scale(1.1);
-            -ms-transform: scale(1.1);
-            transform: scale(1.1);
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: repeat(1, 1fr);
+
+        li {
+            padding: 8px;
+            margin: 4px;
+
+            div {
+                justify-content: center;
+
+                img {
+                    max-width: 200px;
+                }
+            }
         }
+    }
+    @media (min-width: 500px) and (max-width: 770px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+
+        li {
+            padding: 8px;
+            margin: 4px;
+
+            div {
+                justify-content: center;
+
+                img {
+                    max-width: 200px;
+                }
+            }
+        }
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+
+        li {
+            div {
+                justify-content: center;
+            }
+
+            &:hover {
+                box-shadow: 8px 10px 10px 10px rgba(0, 0, 0, 0.1);
+                -webkit-transform: scale(1.1);
+                -moz-transform: scale(1.1);
+                -o-transform: scale(1.1);
+                -ms-transform: scale(1.1);
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    @media (min-width: 1000px) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 15px;
     }
 `;
