@@ -10,7 +10,7 @@ export default class Home extends Component {
     // eslint-disable-next-line react/state-in-constructor
     state = {
         tshirts: [],
-        disable: false,
+        lovedIt: [],
     };
 
     async componentDidMount() {
@@ -19,19 +19,24 @@ export default class Home extends Component {
         this.setState({ tshirts: response.data });
     }
 
-    handleLove = () => {
-        const { disable } = this.state;
+    handleLovedIt = (id) => {
+        const { lovedIt } = this.state;
 
-        let nvDisable = true;
-        if (disable === true) {
-            nvDisable = false;
+        const lovedAlreadySelected = lovedIt.findIndex(
+            (tshirtLoved) => tshirtLoved === id
+        );
+
+        if (lovedAlreadySelected !== -1) {
+            const filterId = lovedIt.filter((idLoved) => idLoved !== id);
+            this.setState({ lovedIt: filterId });
+        } else {
+            const data = [...lovedIt, id];
+            this.setState({ lovedIt: data });
         }
-
-        this.setState({ disable: nvDisable });
     };
 
     render() {
-        const { tshirts, disable } = this.state;
+        const { tshirts, lovedIt } = this.state;
 
         return (
             <Container>
@@ -42,12 +47,17 @@ export default class Home extends Component {
                                 <img src={tshirt.image} alt={tshirt.title} />
                                 <button
                                     type="button"
-                                    onClick={() => this.handleLove()}
+                                    onClick={() =>
+                                        this.handleLovedIt(tshirt.id)
+                                    }
                                 >
-                                    {disable ? (
-                                        <IoMdHeart size={25} color="red" />
+                                    {lovedIt.includes(tshirt.id) ? (
+                                        <IoMdHeart size={25} color="#E73C7E" />
                                     ) : (
-                                        <IoMdHeartEmpty size={25} color="red" />
+                                        <IoMdHeartEmpty
+                                            size={25}
+                                            color="#E73C7E"
+                                        />
                                     )}
                                 </button>
                             </div>
