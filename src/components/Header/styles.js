@@ -40,4 +40,10 @@ export const Cart = styled(Link)`
             background-color: #e73c7e;
         }
     }
+
+    @media (max-width: 500px) {
+        img {
+            width: 40px;
+        }
+    }
 `;

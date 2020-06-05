@@ -20,6 +20,19 @@ export const Container = styled.div`
             max-height: 100%;
         }
     }
+
+    @media (max-width: 575px) {
+        flex-direction: column;
+        align-items: center;
+
+        > div {
+            height: 250px;
+            img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+        }
+    }
 `;
 
 export const ProductDetails = styled.section`
@@ -58,6 +71,14 @@ export const ProductDetails = styled.section`
         border: none;
         border-radius: 4px;
         color: #fff;
+    }
+
+    @media (max-width: 575px) {
+        > strong {
+            font-size: 30px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
     }
 `;
 
@@ -122,6 +143,21 @@ export const ButtonsNav = styled.section`
             }
         }
     }
+
+    @media (max-width: 575px) {
+        div {
+            margin-top: 50px;
+
+            a {
+                font-size: 10px;
+                margin-right: 5px;
+            }
+            button {
+                padding: 2px;
+                font-size: 10px;
+            }
+        }
+    }
 `;
 
 export const InfoProducts = styled.div`
@@ -150,6 +186,12 @@ export const InfoProducts = styled.div`
             margin: 5px;
         }
     }
+
+    @media (max-width: 500px) {
+        div {
+            flex-direction: column;
+        }
+    }
 `;
 
 export const SizeTable = styled.table`
@@ -159,5 +201,12 @@ export const SizeTable = styled.table`
     thead th {
         padding: 4px;
         border-bottom: 1px solid #eee;
+    }
+
+    @media (max-width: 500px) {
+        thead th {
+            padding: 1px;
+            font-size: 12px;
+        }
     }
 `;
