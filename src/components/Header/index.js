@@ -18,7 +18,7 @@ function Header({ cartTotal }) {
                 <img src={logo} alt="blusinha" />
             </Link>
             <Cart to="/cart">
-                <Link to="/login">
+                <Link to="/LovedIt">
                     <FaRegHeart size={38} color="#FFF" />
                 </Link>
                 <RiShoppingBagLine to="/cart" size={45} color="#FFF" />
