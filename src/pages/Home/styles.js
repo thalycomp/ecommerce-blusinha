@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     margin-top: 60px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 4px;
 `;
 
 export const TshirtList = styled.ul`
@@ -13,8 +16,9 @@ export const TshirtList = styled.ul`
         flex-direction: column;
         background: #fff;
         border-radius: 4px;
-        padding: 15px;
+        padding: 10px;
         justify-content: center;
+        border: 1px solid #eee;
 
         div {
             display: flex;
