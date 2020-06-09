@@ -13,42 +13,45 @@ export const Container = styled.div`
     padding: 25px;
     margin-top: 50px;
 `;
-export const ProductCart = styled.table`
+export const ProductCart = styled.main`
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eee;
 
-    thead th {
-        color: #999;
-        border-bottom: 1px solid #eee;
-        text-align: center;
-        padding: 4px;
-    }
+    > section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 5px;
 
-    tbody td {
-        padding: 12px;
-        border-bottom: 1px solid #eee;
-
-        svg {
-            cursor: pointer;
+        img {
+            height: 120px;
+            margin-right: 20px;
         }
 
-        p {
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-        strong {
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-        span {
-            display: block;
-            font-size: 10px;
-            color: #999;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-        div {
-            display: flex;
-            align-items: center;
+        > div {
+            margin: 5px;
+
+            p {
+                font-size: 12px;
+                margin-bottom: 8px;
+                max-width: 400px;
+            }
+            strong {
+                font-size: 16px;
+                margin-bottom: 4px;
+            }
+            span {
+                display: block;
+                font-size: 10px;
+                color: #999;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+            }
 
             input {
                 border: 1px solid #fff;
@@ -56,16 +59,25 @@ export const ProductCart = styled.table`
                 padding-left: 15px;
                 width: 40px;
             }
-        }
-        button {
-            background: none;
-            border: 0;
-            padding: 6px;
+
+            button {
+                background: none;
+                border: 0;
+                padding: 6px;
+            }
         }
     }
 
-    img {
-        height: 120px;
+    @media (max-width: 490px) {
+        > section {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    @media (max-width: 972px) {
+        flex-direction: column;
     }
 `;
 
@@ -132,6 +144,20 @@ export const ButtonsNav = styled.section`
 
             &:hover {
                 opacity: 0.7;
+            }
+        }
+    }
+    @media (max-width: 575px) {
+        div {
+            margin-top: 50px;
+
+            a {
+                font-size: 10px;
+                margin-right: 5px;
+            }
+            button {
+                padding: 2px;
+                font-size: 10px;
             }
         }
     }
