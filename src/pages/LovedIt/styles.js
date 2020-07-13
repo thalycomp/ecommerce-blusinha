@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const LovedItEmpty = styled.strong`
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    color: #fff;
+`;
+
 export const Container = styled.div`
     display: flex;
     flex-direction: column;

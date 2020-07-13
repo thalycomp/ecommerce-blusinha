@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { IoMdHeartEmpty, IoMdHeart } from 'react-icons/io';
+import PropTypes from 'prop-types';
 
 import * as ActionsLovedIt from '../../store/Modules/lovedIt/actions';
 
@@ -68,3 +69,8 @@ const mapStateToProps = (state) => ({
     LovedIt: state.lovedIt,
 });
 export default connect(mapStateToProps)(Home);
+
+Home.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    LovedIt: PropTypes.arrayOf(Object).isRequired,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import {
     IoMdRemoveCircle,
@@ -82,12 +83,7 @@ function Cart({ cartTShirts, total, dispatch }) {
                                     </button>
                                 </div>
                                 <div>
-                                    <button
-                                        type="button"
-                                        onClick={() =>
-                                            dispatch(ActionsCart.removeToCart())
-                                        }
-                                    ></button>
+                                <button type="button" onClick={() => dispatch(ActionsCart.removeToCart())}/>
                                 </div>
                                 <div>
                                     <span> Subtotal: </span>
@@ -138,3 +134,9 @@ export default connect((state) => ({
         }, 0)
         .toFixed(2),
 }))(Cart);
+
+Cart.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    cartTShirts: PropTypes.arrayOf(Object).isRequired,
+    total: PropTypes.string.isRequired,
+};

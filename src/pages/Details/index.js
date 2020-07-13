@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 import Api from '../../services/api';
@@ -25,7 +27,9 @@ class Details extends Component {
     };
 
     async componentDidMount() {
-        const { id } = this.props.match.params;
+        const { match } = this.props;
+        const { params } = match;
+        const { id } = params;
 
         const response = await Api.get(`/tshirts/${id}`);
         const amount = await Api.get(`/amount/${id}`);
@@ -127,7 +131,7 @@ class Details extends Component {
                         <SizeTable>
                             <thead>
                                 <tr>
-                                    <th />
+                                    <th>-</th>
                                     <th> Altura </th>
                                     <th> Largura </th>
                                     <th> Manga </th>
@@ -180,3 +184,13 @@ class Details extends Component {
 }
 
 export default connect()(Details);
+
+Details.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    history: PropTypes.object.isRequired,
+    match: PropTypes.shape({
+        params: PropTypes.shape({
+            id: PropTypes.string,
+        }),
+    }).isRequired,
+};
