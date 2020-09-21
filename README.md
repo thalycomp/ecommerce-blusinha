@@ -20,7 +20,7 @@ Blusinha Ecommerce
 
 [//]: # (Add your gifs/images here:)
 <div>
-  <img src="https://i.ibb.co/n0GQ7nT/Blusinha.gif" alt="demo" height="425">
+  <img align="center" src="https://i.ibb.co/n0GQ7nT/Blusinha.gif" alt="demo" height="425">
 </div>
 
 <hr />
